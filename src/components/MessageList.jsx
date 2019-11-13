@@ -27,6 +27,7 @@ export class MessageList extends Component {
 
     return (
       <div className="message-list">
+        <h3>Messages</h3>
         {this.props.messages.map((message, index) => {
           return (
             <Message

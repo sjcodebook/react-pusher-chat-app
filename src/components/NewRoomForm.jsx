@@ -24,16 +24,22 @@ export class NewRoomForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} className="new-room-form">
+      <div style={{ marginTop: "20px" }}>
+        <form onSubmit={this.handleSubmit} className="new-room-form ui form">
           <input
+            className="field"
             onChange={this.handleChange}
             value={this.state.roomName}
             type="text"
             placeholder="Create new room"
             required
           />
-          <button id="create-new-room-btn" type="submit">
+          <button
+            style={{ marginTop: "10px", textAlign: "center" }}
+            id="create-new-room-btn"
+            className="ui primary button fluid"
+            type="submit"
+          >
             +
           </button>
         </form>

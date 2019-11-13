@@ -100,6 +100,10 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
+        <div class="ui red segment">
+          <h1>React Chat App</h1>
+        </div>
+
         {/* <ChatkitProvider
           instanceLocator={instanceLocator}
           tokenProvider={tokenProvider}
@@ -107,20 +111,30 @@ export class App extends Component {
         >
           <Welcome />
         </ChatkitProvider> */}
-        <MessageList
-          roomId={this.props.roomId}
-          messages={this.state.messages}
-        />
-        <NewRoomForm createRoom={this.createRoom} />
-        <RoomList
-          roomId={this.state.roomId}
-          subscribeToRoom={this.subscribeToRoom}
-          rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
-        />
-        <SendMessageForm
-          disabled={!this.state.room}
-          sendMessage={this.sendMessage}
-        />
+        <div class="ui grid" style={{ marginTop: "20px" }}>
+          <div class="column four wide">
+            <RoomList
+              roomId={this.state.roomId}
+              subscribeToRoom={this.subscribeToRoom}
+              rooms={[...this.state.joinableRooms, ...this.state.joinedRooms]}
+            />
+            <NewRoomForm createRoom={this.createRoom} />
+          </div>
+          <div class="column eight wide">
+            <MessageList
+              roomId={this.props.roomId}
+              messages={this.state.messages}
+            />
+
+            <SendMessageForm
+              disabled={!this.state.room}
+              sendMessage={this.sendMessage}
+            />
+          </div>
+          <div class="column four wide">
+            <h3>Users In The Room</h3>
+          </div>
+        </div>
       </div>
     );
   }

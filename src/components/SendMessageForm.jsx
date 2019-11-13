@@ -24,14 +24,18 @@ export class SendMessageForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit} className="send-message-form">
+      <div style={{ marginTop: "20px" }}>
+        <form
+          onSubmit={this.handleSubmit}
+          className="send-message-form ui form"
+        >
           <input
             // disabled={this.props.disabled}
+            className="field"
             onChange={this.handleChange}
             value={this.state.message}
             type="text"
-            placeholder="type your message"
+            placeholder="Type your message and press enter"
           />
         </form>
       </div>
