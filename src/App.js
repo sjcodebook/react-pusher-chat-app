@@ -8,6 +8,7 @@ import MessageList from "./components/MessageList";
 import NewRoomForm from "./components/NewRoomForm";
 import RoomList from "./components/RoomList";
 import SendMessageForm from "./components/SendMessageForm";
+import UsersInRoomList from "./components/UsersInRoomList";
 
 import { tokenURL, instanceLocator } from "./config";
 
@@ -15,7 +16,7 @@ const tokenProvider = new TokenProvider({
   url: tokenURL
 });
 
-const userId = "dragon";
+const userId = "viking";
 
 export class App extends Component {
   constructor() {
@@ -24,7 +25,8 @@ export class App extends Component {
       roomId: null,
       messages: [],
       joinableRooms: [],
-      joinedRooms: []
+      joinedRooms: [],
+      usersInRoom: []
     };
   }
 
@@ -74,7 +76,8 @@ export class App extends Component {
       })
       .then(room => {
         this.setState({
-          roomId: room.id
+          roomId: room.id,
+          usersInRoom: this.currentUser.users
         });
         this.getRooms();
       })
@@ -100,7 +103,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <div class="ui red segment">
+        <div className="ui red segment">
           <h1>React Chat App</h1>
         </div>
 
@@ -111,8 +114,8 @@ export class App extends Component {
         >
           <Welcome />
         </ChatkitProvider> */}
-        <div class="ui grid" style={{ marginTop: "20px" }}>
-          <div class="column four wide">
+        <div className="ui grid" style={{ marginTop: "20px" }}>
+          <div className="column four wide">
             <RoomList
               roomId={this.state.roomId}
               subscribeToRoom={this.subscribeToRoom}
@@ -120,7 +123,7 @@ export class App extends Component {
             />
             <NewRoomForm createRoom={this.createRoom} />
           </div>
-          <div class="column eight wide">
+          <div className="column eight wide">
             <MessageList
               roomId={this.props.roomId}
               messages={this.state.messages}
@@ -131,8 +134,8 @@ export class App extends Component {
               sendMessage={this.sendMessage}
             />
           </div>
-          <div class="column four wide">
-            <h3>Users In The Room</h3>
+          <div className="column four wide">
+            <UsersInRoomList users={this.state.usersInRoom} />
           </div>
         </div>
       </div>
