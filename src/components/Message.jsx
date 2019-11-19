@@ -3,8 +3,8 @@ import React from "react";
 function Message(props) {
   return (
     <div>
-      <div class="ui success message">
-        <div class="header">{props.username}</div>
+      <div className="ui success message">
+        <div className="header">{props.username}</div>
         <p>{props.message}</p>
       </div>
     </div>

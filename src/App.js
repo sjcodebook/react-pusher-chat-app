@@ -13,7 +13,7 @@ const tokenProvider = new TokenProvider({
   url: tokenURL
 });
 
-const userId = "viking";
+const userId = "dragon";
 
 export class App extends Component {
   constructor() {
