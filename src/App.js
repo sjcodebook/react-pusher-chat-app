@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-// import { ChatkitProvider } from "@pusher/chatkit-client-react";
 import { ChatManager, TokenProvider } from "@pusher/chatkit-client";
-
-// import Welcome from "./components/Welcome";
 import MessageList from "./components/MessageList";
 import NewRoomForm from "./components/NewRoomForm";
 import RoomList from "./components/RoomList";
@@ -107,13 +104,6 @@ export class App extends Component {
           <h1>React Chat App</h1>
         </div>
 
-        {/* <ChatkitProvider
-          instanceLocator={instanceLocator}
-          tokenProvider={tokenProvider}
-          userId={userId}
-        >
-          <Welcome />
-        </ChatkitProvider> */}
         <div className="ui grid" style={{ marginTop: "20px" }}>
           <div className="column four wide">
             <RoomList
